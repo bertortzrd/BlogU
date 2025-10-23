@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(154,166,191);
+}
+body{
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedorLogin{
+    background-color: #9ba7c1;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fondoLogo{
+    background-color: #7484ab;
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);   
+}
+.logo{
+    background-color: #9ba7c1;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 28px;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+form{
+    height: 35dvh;
+    background-color: #7484ab;
+}
+.contenedorLogin input[type="text"],
+.contenedorLogin input[type="password"] {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 93%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.contenedorLogin input[type="submit"]{
+    color: white;
+    border: 1px solid white;
+    padding: 2px 6px;
+}
+.contenedorLogin input[type="submit"]:hover{
+    background-color: white;
+    color: #7484ab;
+}
+.contenedorLogin h2{
+    color: white;
+    background-color:#7484ab;
+}
+.registro {
+    padding-top: 10%;
+    font-size: 16px;
+    color: #fff;
+    background-color: #7484ab;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.registro a {
+    color: #9ba7c1;
+    text-decoration: underline;
+    background-color: #7484ab
+}
+
+.registro a:hover {
+    color: #dfe6f2;
+}
