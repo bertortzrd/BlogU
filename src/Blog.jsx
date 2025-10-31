@@ -24,8 +24,9 @@ const router = createBrowserRouter([
 function Blog(){
 
     let [token,setToken] = useState("")
+    let [usuario, setUsuario] = useState("")
 
-    return <ContextoUsuario.Provider value={{token,setToken}}>
+    return <ContextoUsuario.Provider value={{token,setToken,usuario,setUsuario}}>
                 <RouterProvider router={router}></RouterProvider>
             </ContextoUsuario.Provider>
 }

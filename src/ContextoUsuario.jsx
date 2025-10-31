@@ -1,5 +1,9 @@
 import { createContext } from "react";
 
-const ContextoUsuario = createContext()
+const ContextoUsuario = createContext({
+      token: "",
+    usuario: ""
+})
+
 
 export default ContextoUsuario

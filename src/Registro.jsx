@@ -43,12 +43,14 @@ function Registro(){
                     <div className="fondoLogo">
                         <form onSubmit={registrarse}>
                             <h2>Registrar nuevo usuario</h2>         
-                                        <input type="text" placeholder="nuevo usuario" value={usuario} onChange={ evento => SetUsuario(evento.target.value)}/>
-                                        <input type="password" placeholder="contraseña" value={password} onChange={ evento => SetPassword(evento.target.value)}/>
-                                        <input type="password" placeholder="confirmar contraseña" value={confirmar} onChange={ evento => SetConfirmar(evento.target.value)}/>
-                                        <input type="submit" value="aceptar" />
-                                        {error && <p style={{ color: "red", backgroundColor:"#7484ab" }}>{error}</p>}
-                                        {exito && <p style={{ color: "green" }}>¡Usuario registrado correctamente!</p>}
+                            <input type="text" placeholder="nuevo usuario" value={usuario} onChange={ evento => SetUsuario(evento.target.value)}/>
+                            <input type="password" placeholder="contraseña" value={password} onChange={ evento => SetPassword(evento.target.value)}/>
+                            <input type="password" placeholder="confirmar contraseña" value={confirmar} onChange={ evento => SetConfirmar(evento.target.value)}/>
+                            <button className="volver" onClick={evento => navegar("/login")}>volver</button>
+                            <input type="submit" value="aceptar" />
+                            {error && <p style={{ color: "red", backgroundColor:"#7484ab", paddingTop:"15px" }}>{error}</p>}
+                            {exito && <p style={{ color: "green", backgroundColor:"#7484ab", paddingTop:"15px" }}>¡Usuario registrado correctamente!</p>}
+                            <p className="logoRegistro">BLOG·U</p>
                         </form>
                     </div>
                 </div> 

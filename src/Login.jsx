@@ -4,8 +4,8 @@ import ContextoUsuario from "./ContextoUsuario"
 
 
 function Login(){
-    let { setToken } = useContext(ContextoUsuario)
-    let [ usuario, setUsuario ] = useState("")
+    let { setToken, setUsuario } = useContext(ContextoUsuario)
+    let [ usuario, setUsuarioInput ] = useState("")
     let [ password, setPassword ] = useState("")
     let[ error, setError ] = useState(false)
     let navegar = useNavigate()
@@ -32,12 +32,13 @@ function Login(){
                                     return res.json()
                                     .then(({token}) => {
                                         setToken(token)
+                                        setUsuario(usuario)
                                         navegar("/")
                                     })
                                     .catch(() => setError(true))
                                 })
                             }}>
-                            <input type="text" placeholder="usuario" value={usuario} onChange={ evento => setUsuario(evento.target.value)} />
+                            <input type="text" placeholder="usuario" value={usuario} onChange={ evento => setUsuarioInput(evento.target.value)} />
                             <input type="password" placeholder="contraseña" value={password} onChange={ evento => setPassword(evento.target.value)} />
                             <input type="submit" value="log in" />
                             {error && <p style={{ color: "red", backgroundColor: "#7484ab" }}>usuario o contraseña incorrectos</p>}
