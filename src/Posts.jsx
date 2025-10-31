@@ -39,16 +39,13 @@ function Posts(){
     setPosts(prevPosts => prevPosts.filter(post => post._id !== postId));
     }
 
-    function Logout(){
-        let {setToken, setUsuario} = useContext(ContextoUsuario)
-        let navegar = useNavigate()
-
-        const hacerLogout = () => {
-            setToken("")
-            setUsuario(null)
-            navigate("/login")
-        }
+    function hacerLogout(){
+        setToken("")
+        setUsuario(null)
+        navigate("/login")
     }
+
+    if (token === "") return <Navigate to="/login" />
 
     return token == "" ? 
             <Navigate to="/login" /> :
