@@ -6,8 +6,9 @@ import Post from "./posts/Post"
 
 
 function Posts(){
-    let { token, usuario} = useContext(ContextoUsuario)
+    let { token, usuario, setToken, setUsuario} = useContext(ContextoUsuario)
     let [posts,setPosts] = useState([])
+    let navegar = useNavigate()
 
     useEffect(() => {
         if (token !== "") {
@@ -42,7 +43,7 @@ function Posts(){
     function hacerLogout(){
         setToken("")
         setUsuario(null)
-        navigate("/login")
+        navegar("/login")
     }
 
     if (token === "") return <Navigate to="/login" />
