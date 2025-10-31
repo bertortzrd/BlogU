@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from "react"
-import { Navigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 import ContextoUsuario from "./ContextoUsuario"
 import Formulario from "./posts/Formulario"
 import Post from "./posts/Post"
 
 
 function Posts(){
-    const { token, usuario} = useContext(ContextoUsuario)
+    let { token, usuario} = useContext(ContextoUsuario)
     let [posts,setPosts] = useState([])
 
     useEffect(() => {
@@ -39,11 +39,22 @@ function Posts(){
     setPosts(prevPosts => prevPosts.filter(post => post._id !== postId));
     }
 
+    function Logout(){
+        let {setToken, setUsuario} = useContext(ContextoUsuario)
+        let navegar = useNavigate()
+
+        const hacerLogout = () => {
+            setToken("")
+            setUsuario(null)
+            navigate("/login")
+        }
+    }
+
     return token == "" ? 
             <Navigate to="/login" /> :
             <>
             <div className="feed">
-                <h2 className="logoInicio">BLOG·U<a className="salir"href="/login">Salir</a></h2>
+                <h2 className="logoInicio">BLOG·U<button className="salir" onClick={hacerLogout}>Salir</button></h2>
                 <Formulario escribirPost={escribirPost}/>
                 <section className="publicaciones">
                     {Array.isArray(posts) ? posts.map( ({texto,_id,autor,likes}) => <Post key={_id} _id={_id} texto={texto} autor={autor} token={token} likes={likes} actualizarLikes={actualizarLikes} eliminarPost={eliminarPost} editarPost={editarPost} esAutor={usuario === autor}  />) : null }

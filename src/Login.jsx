@@ -10,6 +10,10 @@ function Login(){
     let[ error, setError ] = useState(false)
     let navegar = useNavigate()
 
+    const registrarse = () => {
+        Navigate("/Registro")
+    }
+
     return <>
             <div className="contenedorLogin">
                 <div className="fondoLogo">
@@ -42,7 +46,7 @@ function Login(){
                             <input type="password" placeholder="contraseña" value={password} onChange={ evento => setPassword(evento.target.value)} />
                             <input type="submit" value="log in" />
                             {error && <p style={{ color: "red", backgroundColor: "#7484ab" }}>usuario o contraseña incorrectos</p>}
-                            <p className="registro">¿No tienes cuenta? <a href="/registro">Regístrate aquí</a></p>
+                            <p className="registro">¿No tienes cuenta? <button onClick={registrarse}>Regístrate aquí</button></p>
                         </form>
                 </div>
             </div>
